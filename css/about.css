@@ -1,0 +1,99 @@
+.about-hero {
+  padding: 180px 20px 100px;
+  text-align: center;
+  background: var(--primary);
+}
+
+.about-hero h1 {
+  font-size: 5rem;
+  color: var(--text);
+}
+
+.brand-story {
+  display: flex;
+  padding: 0 50px 100px;
+  gap: 50px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.brand-story-img {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-story-img img {
+  width: 100%;
+  height: auto;
+  transition: transform 2s ease;
+}
+
+.brand-story-img:hover img {
+  transform: scale(1.05);
+}
+
+.brand-story-text {
+  flex: 1;
+}
+
+.brand-story-text h2 {
+  font-size: 3rem;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.values-section {
+  padding: 80px 50px;
+  background: var(--card);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.value-card {
+  padding: 40px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.value-card h3 {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 15px;
+}
+
+.lookbook-strip {
+  display: flex;
+  overflow-x: auto;
+  padding: 50px;
+  gap: 20px;
+  scrollbar-width: none;
+}
+
+.lookbook-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.lookbook-strip img {
+  height: 400px;
+  width: auto;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .brand-story {
+    flex-direction: column;
+    padding: 0 20px 60px;
+  }
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}

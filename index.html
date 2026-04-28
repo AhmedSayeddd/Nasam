@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NASAM | Dark Luxury Streetwear</title>
+  <meta name="description" content="Egyptian luxury streetwear brand. Don't follow fashion. Be fashion.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <style>
+    /* Homepage Specific */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10%;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.9)), url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E') repeat, #0a0a0a;
+    }
+    
+    .hero-content {
+      z-index: 2;
+      max-width: 600px;
+    }
+    
+    .hero-content h1 {
+      font-size: 8rem;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    
+    .hero-content p {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+      color: #aaa;
+    }
+    
+    .hero-img {
+      z-index: 2;
+      width: 40%;
+      max-width: 500px;
+    }
+    
+    /* Stats Bar */
+    .stats-bar {
+      display: flex;
+      justify-content: space-around;
+      padding: 80px 20px;
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-item h3 {
+      font-size: 3rem;
+      color: var(--accent);
+    }
+    
+    /* Lookbook Grid */
+    .lookbook-grid {
+      columns: 3 300px;
+      column-gap: 20px;
+      padding: 0 50px 100px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .lookbook-item {
+      break-inside: avoid;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .lookbook-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    
+    .lookbook-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10,10,10,0.5);
+      transition: opacity 0.3s ease;
+    }
+    
+    .lookbook-item:hover .lookbook-overlay {
+      opacity: 0;
+    }
+    
+    .lookbook-item:nth-child(even) { transform: rotate(1deg); }
+    .lookbook-item:nth-child(odd) { transform: rotate(-1deg); }
+  </style>
+</head>
+<body>
+  <div id="cursor"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-brand"><a href="index.html">NASAM</a></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="pages/shop.html">Shop</a>
+      <a href="pages/about.html">About</a>
+      <a href="pages/contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="cart-icon">
+        🛒
+        <span class="cart-badge">0</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content reveal">
+      <h1 class="brand-font glitch-anim">NASAM</h1>
+      <p>Don't follow fashion. Be fashion.</p>
+      <a href="pages/shop.html" class="btn">Shop Now</a>
+    </div>
+    <div class="hero-img float-anim reveal">
+      <!-- Suggested dimension: 800x800px transparent PNG -->
+      <img src="images/hero/hero-product.png" alt="NASAM Floating Jacket" style="width:100%;">
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section style="padding: 100px 0;">
+    <h2 class="brand-font" style="text-align: center; font-size: 3rem; margin-bottom: 50px;">Latest Collection</h2>
+    <div class="shop-grid">
+      <!-- T-Shirts -->
+      <div class="product-card reveal" data-id="ts1">
+        <div class="product-img-wrapper">
+          <!-- Suggested: 600x800px -->
+          <img src="images/products/tshirts/tshirt-1.png" alt="Oversized Basic Tee">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Oversized Basic Tee</h3>
+          <span class="product-price shimmer-text">599 EGP</span>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      
+      <div class="product-card reveal" data-id="ts2">
+        <div class="product-img-wrapper">
+          <img src="images/products/tshirts/tshirt-2.png" alt="NASAM Graphic Tee">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">NASAM Graphic Tee</h3>
+          <span class="product-price shimmer-text">749 EGP</span>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      
+      <div class="product-card reveal" data-id="ts3">
+        <div class="product-img-wrapper">
+          <img src="images/products/tshirts/tshirt-3.png" alt="Heavy Premium Tee">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Heavy Premium Tee</h3>
+          <span class="product-price shimmer-text">849 EGP</span>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Pants -->
+      <div class="product-card reveal" data-id="p1">
+        <div class="product-img-wrapper">
+          <img src="images/products/pants/pants-1.png" alt="Tactical Cargo Pants">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Tactical Cargo Pants</h3>
+          <span class="product-price shimmer-text">1,199 EGP</span>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+      
+      <div class="product-card reveal" data-id="p2">
+        <div class="product-img-wrapper">
+          <img src="images/products/pants/pants-2.png" alt="Premium Jogger Pants">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Premium Jogger Pants</h3>
+          <span class="product-price shimmer-text">999 EGP</span>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-id="p3">
+        <div class="product-img-wrapper">
+          <img src="images/products/pants/pants-3.png" alt="Street Plaid Pants">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Street Plaid Pants</h3>
+          <span class="product-price shimmer-text">1,099 EGP</span>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Jackets -->
+      <div class="product-card reveal" data-id="j1">
+        <div class="product-img-wrapper">
+          <img src="images/products/jackets/jacket-1.png" alt="NASAM Bomber Jacket">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">NASAM Bomber Jacket</h3>
+          <span class="product-price shimmer-text">1,799 EGP</span>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-id="j2">
+        <div class="product-img-wrapper">
+          <img src="images/products/jackets/jacket-2.png" alt="Double-Face Wind Jacket">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Double-Face Wind Jacket</h3>
+          <span class="product-price shimmer-text">2,299 EGP</span>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+
+      <div class="product-card reveal" data-id="j3">
+        <div class="product-img-wrapper">
+          <img src="images/products/jackets/jacket-3.png" alt="Waterproof Tactical Jacket">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">Waterproof Tactical Jacket</h3>
+          <span class="product-price shimmer-text">2,099 EGP</span>
+          <button class="btn add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="stats-bar reveal">
+    <div class="stat-item">
+      <h3 class="brand-font"><span class="counter-number" data-target="500" data-suffix="+">0</span></h3>
+      <p>Customers</p>
+    </div>
+    <div class="stat-item">
+      <h3 class="brand-font"><span class="counter-number" data-target="9">0</span></h3>
+      <p>Premium Products</p>
+    </div>
+    <div class="stat-item">
+      <h3 class="brand-font"><span class="counter-number" data-target="3">0</span></h3>
+      <p>Collections</p>
+    </div>
+  </section>
+
+  <!-- About Teaser -->
+  <section class="reveal" style="padding: 100px 50px; max-width: 1400px; margin: 0 auto; display: flex; gap: 50px; align-items: center;">
+    <div style="flex: 1;">
+      <h2 class="brand-font" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;">The Dark Aesthetic</h2>
+      <p style="margin-bottom: 30px;">Born in the streets of Egypt, NASAM redefines luxury streetwear. We blend dark aesthetics with premium quality materials to create statement pieces that defy conventions.</p>
+      <a href="pages/about.html" class="btn">Discover Our Story</a>
+    </div>
+    <div style="flex: 1;">
+      <!-- Suggested: 800x600px editorial -->
+      <img src="images/lookbook/look-1.jpg" alt="NASAM Editorial" style="width: 100%; border: 1px solid var(--border);">
+    </div>
+  </section>
+
+  <!-- Lookbook Grid -->
+  <section style="padding: 50px 0;">
+    <h2 class="brand-font reveal" style="text-align: center; font-size: 3rem; margin-bottom: 50px;">Our Style</h2>
+    <div class="lookbook-grid reveal">
+      <!-- Suggested: masonry grid mixing portrait and landscape shots -->
+      <div class="lookbook-item"><img src="images/lookbook/look-1.jpg" alt="Look 1"><div class="lookbook-overlay"></div></div>
+      <div class="lookbook-item"><img src="images/lookbook/look-2.jpg" alt="Look 2"><div class="lookbook-overlay"></div></div>
+      <div class="lookbook-item"><img src="images/lookbook/look-3.jpg" alt="Look 3"><div class="lookbook-overlay"></div></div>
+      <div class="lookbook-item"><img src="images/lookbook/look-4.jpg" alt="Look 4"><div class="lookbook-overlay"></div></div>
+      <div class="lookbook-item"><img src="images/lookbook/look-5.jpg" alt="Look 5"><div class="lookbook-overlay"></div></div>
+      <div class="lookbook-item"><img src="images/lookbook/look-6.jpg" alt="Look 6"><div class="lookbook-overlay"></div></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <h2 class="footer-brand brand-font">NASAM</h2>
+    <div class="footer-socials">
+      <a href="#">IG</a>
+      <a href="#">TK</a>
+      <a href="#">WA</a>
+    </div>
+    <div class="footer-bottom">
+      All Rights Reserved &copy; NASAM 2025
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay"></div>
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <h2 class="brand-font">Your Cart</h2>
+      <button class="close-cart">&times;</button>
+    </div>
+    <div class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span class="total-amount">0 EGP</span>
+      </div>
+      <button class="btn checkout-btn">Checkout</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

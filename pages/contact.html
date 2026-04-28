@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | NASAM</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/contact.css">
+</head>
+<body>
+  <div id="cursor"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-brand"><a href="../index.html">NASAM</a></div>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="cart-icon">
+        🛒
+        <span class="cart-badge">0</span>
+      </div>
+    </div>
+  </nav>
+
+  <header class="contact-header reveal">
+    <h1 class="brand-font">Get In Touch</h1>
+  </header>
+
+  <section class="contact-container reveal">
+    <div class="contact-form">
+      <form onsubmit="event.preventDefault();">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+      </form>
+    </div>
+    
+    <div class="contact-socials reveal">
+      <h2 class="brand-font">Connect With Us</h2>
+      <div class="social-links">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <h2 class="footer-brand brand-font">NASAM</h2>
+    <div class="footer-socials">
+      <a href="#">IG</a>
+      <a href="#">TK</a>
+      <a href="#">WA</a>
+    </div>
+    <div class="footer-bottom">
+      All Rights Reserved &copy; NASAM 2025
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay"></div>
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <h2 class="brand-font">Your Cart</h2>
+      <button class="close-cart">&times;</button>
+    </div>
+    <div class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span class="total-amount">0 EGP</span>
+      </div>
+      <button class="btn checkout-btn">Checkout</button>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/cart.js"></script>
+</body>
+</html>

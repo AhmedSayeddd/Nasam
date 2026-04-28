@@ -1,0 +1,66 @@
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 0 red, -2px 0 blue; clip-path: inset(10% 0 80% 0); }
+  20% { text-shadow: -2px 0 red, 2px 0 blue; clip-path: inset(80% 0 10% 0); }
+  40% { text-shadow: 2px 0 red, -2px 0 blue; clip-path: inset(30% 0 40% 0); }
+  60% { text-shadow: -2px 0 red, 2px 0 blue; clip-path: inset(50% 0 30% 0); }
+  80% { text-shadow: 2px 0 red, -2px 0 blue; clip-path: inset(5% 0 90% 0); }
+  100% { text-shadow: none; clip-path: inset(0 0 0 0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.5; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.float-anim {
+  animation: float 3s ease-in-out infinite;
+}
+
+.glitch-anim {
+  animation: glitch 1s linear forwards;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, var(--accent) 0%, #fff 50%, var(--accent) 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(201, 168, 76, 0.4);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}

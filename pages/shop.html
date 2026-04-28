@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | NASAM</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/shop.css">
+</head>
+<body>
+  <div id="cursor"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-brand"><a href="../index.html">NASAM</a></div>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="cart-icon">
+        🛒
+        <span class="cart-badge">0</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Shop Header -->
+  <header class="shop-header reveal">
+    <h1 class="brand-font">Shop All</h1>
+  </header>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar reveal">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="tshirts">T-Shirts</button>
+    <button class="filter-btn" data-filter="pants">Pants</button>
+    <button class="filter-btn" data-filter="jackets">Jackets</button>
+  </div>
+
+  <!-- Shop Grid -->
+  <section class="shop-grid">
+    <!-- T-Shirts -->
+    <div class="product-card reveal" data-category="tshirts" data-id="ts1">
+      <div class="product-img-wrapper">
+        <img src="../images/products/tshirts/tshirt-1.png" alt="Oversized Basic Tee">
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Oversized Basic Tee</h3>
+        <span class="product-price shimmer-text">599 EGP</span>
+        <button class="btn add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card reveal" data-category="tshirts" data-id="ts2">
+      <div class="product-img-wrapper">
+        <img src="../images/products/tshirts/tshirt-2.png" alt="NASAM Graphic Tee">
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">NASAM Graphic Tee</h3>
+        <span class="product-price shimmer-text">749 EGP</span>
+        <button class="btn add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card reveal" data-category="tshirts" data-id="ts3">
+      <div class="product-img-wrapper">
+        <img src="../images/products/tshirts/tshirt-3.png" alt="Heavy Premium Tee">
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Heavy Premium Tee</h3>
+        <span class="product-price shimmer-text">849 EGP</span>
+        <button class="btn add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Pants -->
+    <div class="product-card reveal" data-category="pants" data-id="p1">
+      <div class="product-img-wrapper">
+        <img src="../images/products/pants/pants-1.png" alt="Tactical Cargo Pants">
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Tactical Cargo Pants</h3>
+        <span class="product-price shimmer-text">1,199 EGP</span>
+        <button class="btn add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card reveal" data-category="pants" data-id="p2">
+      <div class="product-img-wrapper">
+        <img src="../images/products/pants/pants-2.png" alt="Premium Jogger Pants">
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Premium Jogger Pants</h3>
+        <span class="product-price shimmer-text">999 EGP</span>
+        <button class="btn add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card reveal" data-category="pants" data-id="p3">
+      <div class="product-img-wrapper">
+        <img src="../images/products/pants/pants-3.png" alt="Street Plaid Pants">
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Street Plaid Pants</h3>
+        <span class="product-price shimmer-text">1,099 EGP</span>
+        <button class="btn add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Jackets -->
+    <div class="product-card reveal" data-category="jackets" data-id="j1">
+      <div class="product-img-wrapper">
+        <img src="../images/products/jackets/jacket-1.png" alt="NASAM Bomber Jacket">
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">NASAM Bomber Jacket</h3>
+        <span class="product-price shimmer-text">1,799 EGP</span>
+        <button class="btn add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card reveal" data-category="jackets" data-id="j2">
+      <div class="product-img-wrapper">
+        <img src="../images/products/jackets/jacket-2.png" alt="Double-Face Wind Jacket">
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Double-Face Wind Jacket</h3>
+        <span class="product-price shimmer-text">2,299 EGP</span>
+        <button class="btn add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+    <div class="product-card reveal" data-category="jackets" data-id="j3">
+      <div class="product-img-wrapper">
+        <img src="../images/products/jackets/jacket-3.png" alt="Waterproof Tactical Jacket">
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">Waterproof Tactical Jacket</h3>
+        <span class="product-price shimmer-text">2,099 EGP</span>
+        <button class="btn add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <h2 class="footer-brand brand-font">NASAM</h2>
+    <div class="footer-socials">
+      <a href="#">IG</a>
+      <a href="#">TK</a>
+      <a href="#">WA</a>
+    </div>
+    <div class="footer-bottom">
+      All Rights Reserved &copy; NASAM 2025
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay"></div>
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <h2 class="brand-font">Your Cart</h2>
+      <button class="close-cart">&times;</button>
+    </div>
+    <div class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span class="total-amount">0 EGP</span>
+      </div>
+      <button class="btn checkout-btn">Checkout</button>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/shop.js"></script>
+</body>
+</html>
