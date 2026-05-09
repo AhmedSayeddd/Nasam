@@ -24,4 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  // ── Click product card to view details ────────────────────────────────
+  productCards.forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', (e) => {
+      // Don't navigate if clicking "Add to Cart" button
+      if (e.target.classList.contains('add-to-cart') || e.target.closest('.add-to-cart')) {
+        return;
+      }
+      const id = card.getAttribute('data-id');
+      if (id) {
+        window.location.href = `product.html?id=${id}`;
+      }
+    });
+  });
 });

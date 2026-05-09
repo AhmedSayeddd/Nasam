@@ -100,6 +100,140 @@
     
     .lookbook-item:nth-child(even) { transform: rotate(1deg); }
     .lookbook-item:nth-child(odd) { transform: rotate(-1deg); }
+
+    /* ─── Latest Collection Carousel ──────────────────────────────────── */
+    .collection-section {
+      padding: 100px 0 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .collection-heading {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 50px;
+      letter-spacing: 3px;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 0 60px;
+    }
+
+    .carousel-viewport {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 30px;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
+    }
+
+    .carousel-track .product-card {
+      min-width: calc((100% - 60px) / 3);
+      max-width: calc((100% - 60px) / 3);
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .carousel-track .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(201, 168, 76, 0.2);
+    }
+
+    /* Arrow Buttons */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border: 1px solid var(--border);
+      background: rgba(17, 17, 17, 0.9);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .carousel-arrow:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(201, 168, 76, 0.1);
+      box-shadow: 0 0 20px rgba(201, 168, 76, 0.15);
+    }
+
+    .carousel-arrow:disabled {
+      opacity: 0.25;
+      cursor: not-allowed;
+    }
+
+    .carousel-arrow:disabled:hover {
+      border-color: var(--border);
+      color: var(--text);
+      background: rgba(17, 17, 17, 0.9);
+      box-shadow: none;
+    }
+
+    .carousel-prev { left: 0; }
+    .carousel-next { right: 0; }
+
+    /* Dot Indicators */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 0;
+    }
+
+    .carousel-dot.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 10px rgba(201, 168, 76, 0.4);
+    }
+
+    .carousel-dot:hover {
+      border-color: var(--accent);
+    }
+
+    @media (max-width: 1024px) {
+      .carousel-track .product-card {
+        min-width: calc((100% - 30px) / 2);
+        max-width: calc((100% - 30px) / 2);
+      }
+      .carousel-wrapper { padding: 0 50px; }
+    }
+
+    @media (max-width: 600px) {
+      .carousel-track .product-card {
+        min-width: 100%;
+        max-width: 100%;
+      }
+      .carousel-wrapper { padding: 0 45px; }
+      .carousel-arrow { width: 38px; height: 38px; }
+      .collection-heading { font-size: 2rem; margin-bottom: 30px; }
+    }
   </style>
 </head>
 <body>
@@ -110,8 +244,8 @@
     <div class="nav-brand"><a href="index.html">NASAM</a></div>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <a href="pages/shop.html">Shop</a>
       <a href="pages/about.html">About</a>
+      <a href="pages/shop.html">Shop</a>
       <a href="pages/contact.html">Contact</a>
     </div>
     <div class="nav-right">
@@ -135,113 +269,24 @@
     </div>
   </section>
 
-  <!-- Featured Products -->
-  <section style="padding: 100px 0;">
-    <h2 class="brand-font" style="text-align: center; font-size: 3rem; margin-bottom: 50px;">Latest Collection</h2>
-    <div class="shop-grid">
-      <!-- T-Shirts -->
-      <div class="product-card reveal" data-id="ts1">
-        <div class="product-img-wrapper">
-          <!-- Suggested: 600x800px -->
-          <img src="images/products/tshirts/0578d26e-c712-48b1-87a6-30b4931d655f.jpeg" alt="Oversized Basic Tee">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Oversized Basic Tee</h3>
-          <span class="product-price shimmer-text">599 EGP</span>
-          <button class="btn add-to-cart">Add to Cart</button>
+  <!-- Latest Collection Carousel -->
+  <section class="collection-section reveal" id="latest-collection">
+    <h2 class="brand-font collection-heading">Latest Collection</h2>
+    <div class="carousel-wrapper">
+      <button class="carousel-arrow carousel-prev" id="carousel-prev" aria-label="Previous products">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="carousel-viewport" id="carousel-viewport">
+        <div class="carousel-track" id="carousel-track">
+          <!-- Populated by JS from PRODUCTS data -->
         </div>
       </div>
-      
-      <div class="product-card reveal" data-id="ts2">
-        <div class="product-img-wrapper">
-          <img src="images/products/tshirts/3c5f3be0-0093-4390-9868-46877b4bcb9f.jpeg" alt="NASAM Graphic Tee">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">NASAM Graphic Tee</h3>
-          <span class="product-price shimmer-text">749 EGP</span>
-          <button class="btn add-to-cart">Add to Cart</button>
-        </div>
-      </div>
-      
-      <div class="product-card reveal" data-id="ts3">
-        <div class="product-img-wrapper">
-          <img src="images/products/tshirts/7157a3c1-5c7e-4e31-adc2-62334d8f5726.jpeg" alt="Heavy Premium Tee">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Heavy Premium Tee</h3>
-          <span class="product-price shimmer-text">849 EGP</span>
-          <button class="btn add-to-cart">Add to Cart</button>
-        </div>
-      </div>
-
-      <!-- Pants -->
-      <div class="product-card reveal" data-id="p1">
-        <div class="product-img-wrapper">
-          <img src="images/products/pants/7dbea3860ac34b82475547fa162d97b5.jpg" alt="Tactical Cargo Pants">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Tactical Cargo Pants</h3>
-          <span class="product-price shimmer-text">1,199 EGP</span>
-          <button class="btn add-to-cart">Add to Cart</button>
-        </div>
-      </div>
-      
-      <div class="product-card reveal" data-id="p2">
-        <div class="product-img-wrapper">
-          <img src="images/products/pants/9327fe51b45af29ec1e25e6becff5bf7.jpg" alt="Premium Jogger Pants">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Premium Jogger Pants</h3>
-          <span class="product-price shimmer-text">999 EGP</span>
-          <button class="btn add-to-cart">Add to Cart</button>
-        </div>
-      </div>
-
-      <div class="product-card reveal" data-id="p3">
-        <div class="product-img-wrapper">
-          <img src="images/products/pants/9d0a67dd61afa8cc46ed045e6b39af46.jpg" alt="Street Plaid Pants">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Street Plaid Pants</h3>
-          <span class="product-price shimmer-text">1,099 EGP</span>
-          <button class="btn add-to-cart">Add to Cart</button>
-        </div>
-      </div>
-
-      <!-- Jackets -->
-      <div class="product-card reveal" data-id="j1">
-        <div class="product-img-wrapper">
-          <img src="images/products/jackets/06e3613f6ea71c3d3ffe346e85759129.jpg" alt="NASAM Bomber Jacket">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">NASAM Bomber Jacket</h3>
-          <span class="product-price shimmer-text">1,799 EGP</span>
-          <button class="btn add-to-cart">Add to Cart</button>
-        </div>
-      </div>
-
-      <div class="product-card reveal" data-id="j2">
-        <div class="product-img-wrapper">
-          <img src="images/products/jackets/749bfe5e7eb236b6738c7754865e1b38.jpg" alt="Double-Face Wind Jacket">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Double-Face Wind Jacket</h3>
-          <span class="product-price shimmer-text">2,299 EGP</span>
-          <button class="btn add-to-cart">Add to Cart</button>
-        </div>
-      </div>
-
-      <div class="product-card reveal" data-id="j3">
-        <div class="product-img-wrapper">
-          <img src="images/products/jackets/f8ed4553db967bd69e9d618e5160c749.jpg" alt="Waterproof Tactical Jacket">
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Waterproof Tactical Jacket</h3>
-          <span class="product-price shimmer-text">2,099 EGP</span>
-          <button class="btn add-to-cart">Add to Cart</button>
-        </div>
-      </div>
+      <button class="carousel-arrow carousel-next" id="carousel-next" aria-label="Next products">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
+    <!-- Dot indicators -->
+    <div class="carousel-dots" id="carousel-dots"></div>
   </section>
 
   <!-- Stats Bar -->
@@ -323,8 +368,10 @@
     </div>
   </div>
 
+  <script src="js/products-data.js"></script>
   <script src="js/main.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/cart.js"></script>
+  <script src="js/carousel.js"></script>
 </body>
 </html>
